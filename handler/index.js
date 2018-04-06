@@ -222,7 +222,7 @@ class CommandHandler {
         args = {}
         let firstArg = command.args[0]
         let usageEmbed = api.error(`**Usage:**\n${api.prefix}`+typeof command.usage === 'string' ? command.usage.replaceAll('^pfx^', api.prefix) : `${command.id}`, message.author)
-          .setFooter(`${api.handler.name} ${build.version} | ${api.prefix}help ${command.id} | Questions? https://discord.gg/xqyzyP7`)
+          .setFooter(`${api.handler.name} ${build.version} | ${api.prefix}help ${command.id}`)
         if(firstArg.required == true && rawargs.length < 1) {
           return message.channel.send({embed: usageEmbed})
         }
@@ -266,7 +266,7 @@ class CommandHandler {
                     log.error('Couldn\'t find a user ' + id + ' ' + msg.author.id + ' ' + msg.id + ' ' + msg.channel.id, err)
                     return message.channel.send({
                       embed: api.error(`Could not find that user. Go to the support server linked in the footer of this embed and ask for help.`, msg.author)
-                        .setFooter(`${api.handler.name} ${build.version} | ${api.prefix}help ${command.id} | Questions? https://discord.gg/xqyzyP7`)
+                        .setFooter(`${api.handler.name} ${build.version} | ${api.prefix}help ${command.id}`)
                     })
                   }
                 }
@@ -298,7 +298,7 @@ class CommandHandler {
                       log.error('Couldn\'t find a channel ' + id + ' ' + msg.author.id + ' ' + msg.id + ' ' + msg.channel.id, err)
                       return message.channel.send({
                         embed: api.error(`Could not find that channel. Go to the support server linked in the footer of this embed and ask for help.`, msg.author)
-                          .setFooter(`${api.handler.name} ${build.version} | ${api.prefix}help ${command.id} | Questions? https://discord.gg/xqyzyP7`)
+                          .setFooter(`${api.handler.name} ${build.version} | ${api.prefix}help ${command.id}`)
                       })
                     }
                     args[a.name] = new CommandArg(a.name, a.type, channel)
@@ -306,7 +306,7 @@ class CommandHandler {
                     log.error('Couldn\'t find a channel ' + id + ' ' + msg.author.id + ' ' + msg.id + ' ' + msg.channel.id, err)
                     return message.channel.send({
                       embed: api.error(`Could not find that channel. Go to the support server linked in the footer of this embed and ask for help.`, msg.author)
-                        .setFooter(`${api.handler.name} ${build.version} | ${api.prefix}help ${command.id} | Questions? https://discord.gg/xqyzyP7`)
+                        .setFooter(`${api.handler.name} ${build.version} | ${api.prefix}help ${command.id}`)
                     })
                   }
                 }
@@ -336,7 +336,7 @@ class CommandHandler {
                       log.error('Couldn\'t find a role ' + id + ' ' + msg.author.id + ' ' + msg.id + ' ' + msg.channel.id, err)
                       return message.channel.send({
                         embed: api.error(`Could not find that role. Go to the support server linked in the footer of this embed and ask for help.`, msg.author)
-                          .setFooter(`${api.handler.name} ${build.version} | ${api.prefix}help ${command.id} | Questions? https://discord.gg/xqyzyP7`)
+                          .setFooter(`${api.handler.name} ${build.version} | ${api.prefix}help ${command.id}`)
                       })
                     }
                     args[a.name] = new CommandArg(a.name, a.type, role)
@@ -344,7 +344,7 @@ class CommandHandler {
                     log.error('Couldn\'t find a role ' + id + ' ' + msg.author.id + ' ' + msg.id + ' ' + msg.channel.id, err)
                     return message.channel.send({
                       embed: api.error(`Could not find that role. Go to the support server linked in the footer of this embed and ask for help.`, msg.author)
-                        .setFooter(`${api.handler.name} ${build.version} | ${api.prefix}help ${command.id} | Questions? https://discord.gg/xqyzyP7`)
+                        .setFooter(`${api.handler.name} ${build.version} | ${api.prefix}help ${command.id}`)
                     })
                   }
                 }
