@@ -6,11 +6,18 @@
   "repository": "https://github.com/FNCxPro/Spokes",
   "author": "Seth Stephens <relative@airmail.cc>",
   "license": "MIT",
+  "scripts": {
+    "start": "cross-env NODE_ENV=production node index.js"
+  },
   "dependencies": {
     "bufferutil": "^3.0.4",
+    "common-errors": "^1.0.5",
     "config": "^1.30.0",
+    "cross-env": "^5.1.4",
     "discord.js": "^11.3.2",
     "erlpack": "discordapp/erlpack",
-    "uws": "^9.14.0"
+    "klaw": "^2.1.1",
+    "uws": "^9.14.0",
+    "winston": "^3.0.0-rc3"
   }
 }
