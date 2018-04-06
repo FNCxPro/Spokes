@@ -16,8 +16,8 @@ module.exports = class REPLCommand extends Command {
   }
   postConstruct(handler) {
     global.replEvent = function(msg) {
-      const api = new CommandAPI(msg, handler, this, 'dbans.')
-      if(msg.author.id === config.get('owner')) {
+      const api = new CommandAPI(msg, handler, this, 'sp.')
+      if(msg.author.id === config.get('bot.owner')) {
         // Bot owner message received
         if(store[msg.channel.id]) {
           if(msg.content.indexOf('repl disable') !== -1) return
