@@ -242,7 +242,14 @@ class CommandHandler {
               } else {
                 if(typeof rawargs[idx] === 'string' || typeof a.default === 'string') args[a.name] = new CommandArg(a.name, a.type, rawargs[idx] || a.default)
               }
-              
+              break
+            case 'number':
+              if (a.required) {
+                if (typeof rawargs[idx] !== 'string') {
+                  return message.channel.send({embed: usageEmbed})
+                }
+              }
+              if (typeof rawargs[idx] === 'string' || typeof a.default === 'number') args[a.name] = new CommandArg(a.name, a.type, (isNaN(rawargs[idx]) ? 0 : parseInt(rawargs[idx])))
               break
             case 'user':
               if(a.required) {
