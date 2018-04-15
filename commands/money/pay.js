@@ -17,7 +17,7 @@ module.exports = class PayCommand extends Command {
         required: true
       }, {
         name: 'amount',
-        type: 'number',
+        type: 'string',
         description: 'How much you want to pay',
         required: true
       }]
@@ -31,7 +31,7 @@ module.exports = class PayCommand extends Command {
    * @param {CommandAPI} api - Command API
    */
   async run(args, msg, api) {
-    const amount = args.amount.value
+    const amount = isNaN(args.amount.value) ? 0 : parseInt(args.amount.value) 
     const me = await db.getUser(msg.author)
     const _target = args.target.value
     const target = await db.getUser(_target)
