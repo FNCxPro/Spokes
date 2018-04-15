@@ -1,6 +1,3 @@
-# Spokes
-Spokes is a Discord bot framework with parts based off of [Chicago](https://github.com/FNCxPro/Chicago) and [Volcano](https://github.com/VolaciousDev/Volcano)
-## Configuring
-Copy `config/default.json` to `config/production.json` and edit the properties in the production.json file.
-## Starting
-Run `yarn start` (or `npm start`)
+# Nite
+Nite is a "moderation" bot for Discord made by an admin of the Pyro's Shitposting Hole server.
+[![Image](https://img.shields.io/discord/434922307316744202.svg)](https://discord.gg/2ZYCCe4)
