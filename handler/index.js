@@ -188,7 +188,7 @@ class CommandHandler {
   async onMessage(message, user, guild) {
     let content = message.content
     let prefix
-    if(guild && guild.prefix && guild.prefix !== '!') {
+    if(guild && guild.prefix && guild.prefix !== 'dbans.') {
       if(content.startsWith(`${this.client.user.toString()} `)) {
         prefix = `${this.client.user.toString()} `
       } else if(content.startsWith(guild.prefix)) {
@@ -218,7 +218,7 @@ class CommandHandler {
       let api = new CommandAPI(message, this, command, prefix)
       let args = c.splice(1)
       let rawargs = args
-      if(typeof command.args === 'object' && Array.isArray(command.args) && command.args.length > 0) {
+      if(typeof command.args === 'object' && command.args.length > 0) {
         args = {}
         let firstArg = command.args[0]
         let usageEmbed = api.error(`**Usage:**\n${api.prefix}`+typeof command.usage === 'string' ? command.usage.replaceAll('^pfx^', api.prefix) : `${command.id}`, message.author)
@@ -361,18 +361,17 @@ class CommandHandler {
           }
         }
       }
-      let response = await Promise.resolve(command.run(args, message, api))
+      let response = await command.run(args, message, api)
       if(!!response) {
         if(response.title && response.description) {
-          await message.channel.send({
+          return message.channel.send({
             embed: response
           })
-          return
         }
-        await message.channel.send(response)        
+        message.channel.send(response)        
       }
     } catch(err) {
-      message.channel.send(`Error while executing command \`${command.id}\`\n\`\`\`${err}\n${err.stack}\`\`\``).catch((err) => logger.error('Failed to send error while execution command -- how ironic', err))
+      message.channel.send(`Error while executing command \`${command.id}\`\n\`\`\`${err}\n${err.stack}\`\`\``)
     }
   }
 }
@@ -707,7 +706,3 @@ module.exports = {
   Command,
   CommandAPI
 }
-
-process.on('unhandledRejection', (err) => {
-  console.log(err.stack)
-})

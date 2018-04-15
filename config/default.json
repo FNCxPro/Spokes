@@ -1,17 +1,9 @@
 {
   "bot": {
-    "name": "Nite",
+    "name": "Spokes",
     "owner": "346676896794279937",
-    "prefix": "!",
-    "token": "replace token"
-  },
-  "rethink": {
-    "host": "127.0.0.1",
-    "port": 28015,
-    "//user": "admin",
-    "//password": "admin password",
-    "db": "nite",
-    "pool": true
+    "prefix": "sp.",
+    "token": "change this in production.json"
   },
   "constants": {
     "colors": {
@@ -35,14 +27,6 @@
     {
       "id": "admin",
       "name": "Admin"
-    },
-    {
-      "id": "poll",
-      "name": "Polling"
-    },
-    {
-      "id": "money",
-      "name": "Money"
     }
   ]
 }
